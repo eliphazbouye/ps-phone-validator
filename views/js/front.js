@@ -52,7 +52,14 @@ var errorMap = [validNumber,invalidCountryCode, tooShort, tooLong, invalidNumber
 // console.log(window)
 
 var iti = window.intlTelInput(input, {
-  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.12/build/js/utils.js"
+  initialCountry: "auto",
+  geoIpLookup: function(callback) {
+    $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+      var countryCode = (resp && resp.country) ? resp.country : "ci";
+      callback(countryCode);
+    });
+  },
+  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.12/build/js/utils.js",
 });
 
 var reset = function() {
