@@ -46,7 +46,6 @@ class Ck_phone_indicator extends Module
         $this->bootstrap = true;
 
         parent::__construct();
-
         $this->displayName = $this->l('Phone Indicator');
         $this->description = $this->l('Display phone indicator');
 
@@ -63,8 +62,6 @@ class Ck_phone_indicator extends Module
     {
         Configuration::updateValue('CK_PHONE_INDICATOR_LIVE_MODE', false);
 
-        // include(dirname(__FILE__).'/sql/install.php');
-
         return parent::install() &&
             $this->registerHook('header') &&
             $this->registerHook('backOfficeHeader');
@@ -73,8 +70,6 @@ class Ck_phone_indicator extends Module
     public function uninstall()
     {
         Configuration::deleteByName('CK_PHONE_INDICATOR_LIVE_MODE');
-
-        // include(dirname(__FILE__).'/sql/uninstall.php');
 
         return parent::uninstall();
     }
@@ -231,6 +226,8 @@ class Ck_phone_indicator extends Module
         $this->context->controller->addJS($this->_path.'/views/js/front.js');
         $this->context->controller->addCSS($this->_path.'/views/css/front.css');
         $this->context->controller->addCSS($this->_path.'/views/css/intlTelInput.css');
+
+        return $this->display(__FILE__, 'script.tpl');
     }
 
 }

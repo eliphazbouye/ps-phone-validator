@@ -28,7 +28,7 @@
 
 var input = document.querySelector('input[name="phone"]'), phone_input = document.querySelector('input[name="phone_mobile"]');
 var elSuccess = document.createElement('span');
-elSuccess.innerHTML = '<span id="phone_mobilevalid-msg" class="hide"></span><span id="phone_mobileerror-msg" class="hide"></span>';
+elSuccess.innerHTML = `<span id="phone_mobilevalid-msg" class="alert alert-success hide" style="display:none;">${validNumber}</span><span id="phone_mobileerror-msg" class="alert alert-danger hide" style="display:none;"></span>`;
 // 
 
 input.parentNode.insertBefore(elSuccess, input.nextSibling)
@@ -40,18 +40,19 @@ input.parentNode.insertBefore(elSuccess, input.nextSibling)
 // insertAfter(phone_input, elSuccess);
 
 
-var errorMsg = document.querySelector("#phone_mobilevalid-msg"),
-validMsg = document.querySelector("#phone_mobileerror-msg");
+var errorMsg = document.querySelector("#phone_mobileerror-msg"),
+validMsg = document.querySelector("#phone_mobilevalid-msg");
 
 
 // here, the index maps to the error code returned from getValidationError - see readme
-var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+var errorMap = [validNumber,invalidCountryCode, tooShort, tooLong, invalidNumber];
+// var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
 // initialise plugin
 // console.log(window)
 
 var iti = window.intlTelInput(input, {
-  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.js"
+  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.12/build/js/utils.js"
 });
 
 var reset = function() {
@@ -59,6 +60,10 @@ var reset = function() {
   errorMsg.innerHTML = "";
   errorMsg.classList.add("hide");
   validMsg.classList.add("hide");
+  validMsg.style.display ="none";
+  errorMsg.style.display ="none";
+
+
 };
 
 // on blur: validate
@@ -67,11 +72,17 @@ input.addEventListener('blur', function() {
   if (input.value.trim()) {
     if (iti.isValidNumber()) {
       validMsg.classList.remove("hide");
+      validMsg.style.display ="block";
+      errorMsg.style.display ="none";
+
     } else {
+      
       input.classList.add("error");
       var errorCode = iti.getValidationError();
       errorMsg.innerHTML = errorMap[errorCode];
       errorMsg.classList.remove("hide");
+      errorMsg.style.display ="block";
+      validMsg.style.display ="none";
     }
   }
 });
