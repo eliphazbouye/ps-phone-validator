@@ -45,7 +45,7 @@ validMsg = document.querySelector("#phone_mobilevalid-msg");
 
 
 // here, the index maps to the error code returned from getValidationError - see readme
-var errorMap = [validNumber,invalidCountryCode, tooShort, tooLong, invalidNumber];
+var errorMap = [invalidNumber,invalidCountryCode, tooShort, tooLong, invalidNumber];
 // var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
 // initialise plugin
