@@ -25,9 +25,12 @@
 * Don't forget to prefix your containers with your own identifier
 * to avoid any conflicts with others containers.
 */
-
 var input = document.querySelector('input[name="phone"]'), phone_input = document.querySelector('input[name="phone_mobile"]');
 var elSuccess = document.createElement('span');
+
+
+const validatePhoneNumber = (input, elSuccess) => {
+
 elSuccess.innerHTML = `<span id="phone_mobilevalid-msg" class="alert alert-success hide" style="display:none;">${validNumber}</span><span id="phone_mobileerror-msg" class="alert alert-danger hide" style="display:none;"></span>`;
 // 
 
@@ -97,3 +100,26 @@ input.addEventListener('blur', function() {
 // on keyup / change flag: reset
 input.addEventListener('change', reset);
 input.addEventListener('keyup', reset);
+
+}
+
+validatePhoneNumber(input, elSuccess);
+
+
+
+//Listen event
+if (typeof prestashop !== 'undefined') {
+  prestashop.on(
+    'updatedAddressForm',
+    function (event) {
+      // var eventDatas = {};
+      // if (event && event.reason) {
+        var input = document.querySelector('input[name="phone"]'), phone_input = document.querySelector('input[name="phone_mobile"]');
+        var elSuccess = document.createElement('span');
+
+        validatePhoneNumber(input, elSuccess);
+        console.log('listen event works!!!!');
+      // }
+    }
+  );
+}
