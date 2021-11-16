@@ -24,25 +24,25 @@
 *}
 
 <div class="panel">
-	<h3><i class="icon icon-credit-card"></i> {l s='Phone Indicator' mod='ck_phone_indicator'}</h3>
-	<p>
-		<strong>{l s='Here is my new generic module!' mod='ck_phone_indicator'}</strong><br />
-		{l s='Thanks to PrestaShop, now I have a great module.' mod='ck_phone_indicator'}<br />
-		{l s='I can configure it using the following configuration form.' mod='ck_phone_indicator'}
-	</p>
-	<br />
-	<p>
-		{l s='This module will boost your sales!' mod='ck_phone_indicator'}
-	</p>
+    <h3><i class="icon icon-credit-card"></i> {l s='Phone Indicator' mod='sm_phone_indicator'}</h3>
+    <p>
+        <strong>{l s='Here is my new generic module!' mod='sm_phone_indicator'}</strong><br />
+        {l s='Thanks to PrestaShop, now I have a great module.' mod='sm_phone_indicator'}<br />
+        {l s='I can configure it using the following configuration form.' mod='sm_phone_indicator'}
+    </p>
+    <br />
+    <p>
+        {l s='This module will boost your sales!' mod='sm_phone_indicator'}
+    </p>
 </div>
 
 <div class="panel">
-	<h3><i class="icon icon-tags"></i> {l s='Documentation' mod='ck_phone_indicator'}</h3>
-	<p>
-		&raquo; {l s='You can get a PDF documentation to configure this module' mod='ck_phone_indicator'} :
-		<ul>
-			<li><a href="#" target="_blank">{l s='English' mod='ck_phone_indicator'}</a></li>
-			<li><a href="#" target="_blank">{l s='French' mod='ck_phone_indicator'}</a></li>
-		</ul>
-	</p>
+    <h3><i class="icon icon-tags"></i> {l s='Documentation' mod='sm_phone_indicator'}</h3>
+    <p>
+        &raquo; {l s='You can get a PDF documentation to configure this module' mod='sm_phone_indicator'} :
+    <ul>
+        <li><a href="#" target="_blank">{l s='English' mod='sm_phone_indicator'}</a></li>
+        <li><a href="#" target="_blank">{l s='French' mod='sm_phone_indicator'}</a></li>
+    </ul>
+    </p>
 </div>

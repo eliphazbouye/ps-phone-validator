@@ -36,8 +36,8 @@ class Sm_phone_validator extends Module
     {
         $this->name = 'sm_phone_validator';
         $this->tab = 'checkout';
-        $this->version = '1.0.0';
-        $this->author = 'Stranger1698';
+        $this->version = '1.0.1';
+        $this->author = 'Sopho';
         $this->need_instance = 0;
 
         /**
@@ -49,7 +49,7 @@ class Sm_phone_validator extends Module
         $this->displayName = $this->l('Phone Validator');
         $this->description = $this->l('Display phone validator');
 
-        $this->confirmUninstall = $this->l(' Do you want to display a confirmation message when the merchant tries to uninstall the module ?');
+        $this->confirmUninstall = $this->l('Uninstall this module ?');
 
         $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);
     }
